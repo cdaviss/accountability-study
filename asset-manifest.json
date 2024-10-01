@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/accountability-study/static/css/main.b3c614e2.chunk.css",
+    "main.js": "/accountability-study/static/js/main.c829f7b9.chunk.js",
+    "main.js.map": "/accountability-study/static/js/main.c829f7b9.chunk.js.map",
+    "runtime-main.js": "/accountability-study/static/js/runtime-main.8f0feaf4.js",
+    "runtime-main.js.map": "/accountability-study/static/js/runtime-main.8f0feaf4.js.map",
+    "static/css/2.4c34b247.chunk.css": "/accountability-study/static/css/2.4c34b247.chunk.css",
+    "static/js/2.7728fd54.chunk.js": "/accountability-study/static/js/2.7728fd54.chunk.js",
+    "static/js/2.7728fd54.chunk.js.map": "/accountability-study/static/js/2.7728fd54.chunk.js.map",
+    "index.html": "/accountability-study/index.html",
+    "static/css/2.4c34b247.chunk.css.map": "/accountability-study/static/css/2.4c34b247.chunk.css.map",
+    "static/css/main.b3c614e2.chunk.css.map": "/accountability-study/static/css/main.b3c614e2.chunk.css.map",
+    "static/js/2.7728fd54.chunk.js.LICENSE.txt": "/accountability-study/static/js/2.7728fd54.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8f0feaf4.js",
+    "static/css/2.4c34b247.chunk.css",
+    "static/js/2.7728fd54.chunk.js",
+    "static/css/main.b3c614e2.chunk.css",
+    "static/js/main.c829f7b9.chunk.js"
+  ]
+}
