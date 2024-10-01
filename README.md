@@ -2,6 +2,7 @@
 <div id="top"></div>
 
 <p align="left">
+NOTE: THIS IS A CLONE OF THE CODE REPOSITORY FOR "UNTAPPED POTENTIAL." README NOT FULLY UPDATED.
 
 Welcome to the code repository for "Untapped Potential: Designed Digital Trace Data in Online Survey Experiments!" We created this repository to show you how we implemented the studies described in our paper, which collected digital trace data through interactive digital resumes embedded in Qualtrics surveys. Here we provide instructions for how you can recreate these digital resumes. You can also adapt this code for your own research! If you use this repository, we ask that you please cite us. Suggested citation:
 
