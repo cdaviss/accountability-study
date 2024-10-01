@@ -49,14 +49,17 @@ export default class Resume extends React.Component {
 
 	/** The first resume has randomly-decided values. Decide them and put into state. */
 	getResume1Values(callback) {
-		// Select gender
-		const isMan = Math.random() < 0.5;
+		// Select gender (all women in this study)
+		const isMan = 0;
+		
+		// Select race 
+		const isWhite = Math.random() < 0.5;
 
-		// Select name randomly from list of male/female candidates
+		// Select name randomly from list of White/Black candidates
 		const nameIndex = Math.random() < 0.5 ? 0 : 1;
-		let name = isMan
-			? this.state.maleCandidates[nameIndex].name
-			: this.state.femaleCandidates[nameIndex].name;
+		let name = isWhite
+			? this.state.whiteCandidates[nameIndex].name
+			: this.state.blackCandidates[nameIndex].name;
 
 		// Select parenthood
 		const isParent = Math.random() < 0.5;
@@ -73,6 +76,7 @@ export default class Resume extends React.Component {
 		this.setState(
 			{
 				isMan: isMan,
+				isWhite: isWhite,
 				isParent: isParent,
 				education: education,
 				work1: work1,
@@ -90,6 +94,7 @@ export default class Resume extends React.Component {
 		// Store resume 1 values in the database
 		this.USER_DATA.collection("values shown").doc("resume 1").set({
 			isMan: isMan,
+			isWhite: isWhite,
 			isParent: isParent,
 			education: education,
 			work1: work1,
@@ -109,12 +114,15 @@ export default class Resume extends React.Component {
 				const resume1values = doc.data();
 				// Same gender
 				const isMan = resume1values.isMan;
+				
+				// Same race
+				const isWhite = resume1values.isWhite;
 
 				// The other name
 				const nameIndex = resume1values.nameIndex === 0 ? 1 : 0;
-				const name = isMan
-					? this.state.maleCandidates[nameIndex].name
-					: this.state.femaleCandidates[nameIndex].name;
+				const name = isWhite
+					? this.state.whiteCandidates[nameIndex].name
+					: this.state.blackCandidates[nameIndex].name;
 
 				// Opposite parenthood
 				const isParent = !resume1values.isParent;
@@ -132,6 +140,7 @@ export default class Resume extends React.Component {
 				this.setState(
 					{
 						isMan: isMan,
+						isWhite: isWhite,
 						isParent: isParent,
 						education: education,
 						work1: work1,
@@ -146,6 +155,7 @@ export default class Resume extends React.Component {
 				// Store resume 2 values in the database
 				this.USER_DATA.collection("values shown").doc("resume 2").set({
 					isMan: isMan,
+					isWhite: isWhite,
 					isParent: isParent,
 					education: education,
 					work1: work1,
@@ -257,25 +267,25 @@ export default class Resume extends React.Component {
 	parseCandidateData(callbackFunc) {
 		const rawData = this.db.collection("candidates");
 
-		const maleCandidates = [];
-		const femaleCandidates = [];
+		const whiteCandidates = [];
+		const blackCandidates = [];
 
 		rawData
-			.where("isMan", "==", true)
+			.where("isWhite", "==", true)
 			.get()
 			.then((querySnapshot) => {
 				querySnapshot.forEach((doc) => {
-					maleCandidates.push(doc.data());
+					whiteCandidates.push(doc.data());
 				});
 			})
 			.then(() => {
-				// After fetching male candidates, fetch female candidates
+				// After fetching White candidates, fetch Black candidates
 				return rawData
-					.where("isMan", "==", false)
+					.where("isWhite", "==", false)
 					.get()
 					.then((querySnapshot) => {
 						querySnapshot.forEach((doc) => {
-							femaleCandidates.push(doc.data());
+							blackCandidates.push(doc.data());
 						});
 					});
 			})
@@ -283,8 +293,8 @@ export default class Resume extends React.Component {
 				// Set to state and call callback
 				this.setState(
 					{
-						maleCandidates: maleCandidates,
-						femaleCandidates: femaleCandidates,
+						whiteCandidates: whiteCandidates,
+						blackCandidates: blackCandidates,
 					},
 					callbackFunc
 				);
