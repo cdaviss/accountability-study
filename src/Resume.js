@@ -175,9 +175,9 @@ export default class Resume extends React.Component {
 				let parenthoodText = null;
 				// Based on parent/nonparent
 				if (this.state.isParent) {
-					parenthoodText = doc.data().nonparent.toString();
-				} else {
 					parenthoodText = doc.data().parent.toString();
+				} else {
+					parenthoodText = doc.data().nonparent.toString();
 				}
 
 				// Put the text into a nicer format
@@ -198,9 +198,9 @@ export default class Resume extends React.Component {
 				let parenthoodText = null;
 				// Based on parent/nonparent
 				if (this.state.isParent) {
-					parenthoodText = doc.data().nonparent.toString();
-				} else {
 					parenthoodText = doc.data().parent.toString();
+				} else {
+					parenthoodText = doc.data().nonparent.toString();
 				}
 
 				// Put the text into a nicer format
